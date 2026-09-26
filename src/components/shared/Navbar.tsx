@@ -1,8 +1,16 @@
+'use client'
 import Link from "next/link";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
+import MyPlanCount from "./MyPlanCount";
+import MySavedCount from "./MySavedCount";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathName = usePathname()
+  console.log(pathName);
+  
+
   const links = (
     <>
       <li>
@@ -14,8 +22,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-base-300 border-b border-gray-700 mx-auto px-10">
+    <div className="bg-base-300 border-b border-gray-700">
+      <div className="navbar container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,7 +60,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-4 font-bold">
             <li>
               <Link
-                className="rounded-full hover:text-[#C0F800] hover:bg-[#202819]"
+                className={`${pathName == '/workout' ? 'text-[#ccff00] bg-[#202819]' : ''}  rounded-full hover:text-[#ccff00] hover:bg-[#202819]`}
                 href="/workout"
               >
                 Workout
@@ -60,7 +68,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                className="rounded-full hover:text-[#C0F800] hover:bg-[#202819]"
+                className={`${pathName == '/myplan' ? 'text-[#ccff00] bg-[#202819]' : ''} rounded-full hover:text-[#ccff00] hover:bg-[#202819]`}
                 href="/myplan"
               >
                 My Plan
@@ -69,12 +77,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-5">
-          <Link href="" className="">
-            My Plan <span className="ml-2 border bg-[#C2F800] text-black px-2 rounded-full">0</span>
-          </Link>
-          <Link href="" className="">
-            Saved <span className="ml-2 border border-gray-100 px-2 rounded-full">0</span>
-          </Link>
+          <MyPlanCount />
+          
+          <MySavedCount />
         </div>
       </div>
     </div>
