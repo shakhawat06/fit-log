@@ -3,17 +3,20 @@ import MyPlanCard from "@/components/myplan/MyPlanCard";
 import SavedPlanCard from "@/components/myplan/SavedPlanCard";
 import { FitContext } from "@/context/FitlogContext";
 import { Ifitlog } from "@/types/FitLogType";
-import React, { ReactNode, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
 const MyplanPage = () => {
-  const { plans, setPlan, saveds, setSaved } = useContext(FitContext);
+  const context = useContext(FitContext);
+  if (!context) {
+    throw new Error("MyplanPage must be used inside FitlogProvider");
+  }
+  const { plans, saveds } = context;
 
   const [shortBy, setSortBy] = useState<"duration" | "rating" | "calories">(
     "duration",
   );
 
   const [todayPlan, setTodayPlan] = useState<boolean>(true);
-
 
   const sortPlans = (fitLog: Ifitlog[]) => {
     const sortedFit = [...fitLog];
@@ -105,11 +108,15 @@ const MyplanPage = () => {
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
             <div className="space-y-3">
-              {
-                sortedPlans.length != 0 ? sortedPlans.map((plan: Ifitlog) => (
-                <MyPlanCard key={plan.id} plan={plan}></MyPlanCard>
-              )) : <div className="text-yellow-300 text-md text-center">No today&apos;s plans found!</div> 
-              }
+              {sortedPlans.length != 0 ? (
+                sortedPlans.map((plan: Ifitlog) => (
+                  <MyPlanCard key={plan.id} plan={plan}></MyPlanCard>
+                ))
+              ) : (
+                <div className="text-yellow-300 text-md text-center">
+                  No today&apos;s plans found!
+                </div>
+              )}
             </div>
           </div>
 
@@ -123,12 +130,15 @@ const MyplanPage = () => {
 
           <div className="tab-content bg-base-100 border-base-300 p-6">
             <div className="space-y-3">
-              {
-                sortedSaved.length != 0 ? sortedSaved.map((saved: Ifitlog) => (
-                <SavedPlanCard key={saved.id} saved={saved}></SavedPlanCard>
-              )): <div className="text-yellow-300 text-md text-center">No saved plans found!</div> 
-              }
-              
+              {sortedSaved.length != 0 ? (
+                sortedSaved.map((saved: Ifitlog) => (
+                  <SavedPlanCard key={saved.id} saved={saved}></SavedPlanCard>
+                ))
+              ) : (
+                <div className="text-yellow-300 text-md text-center">
+                  No saved plans found!
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -11,7 +11,11 @@ interface FitLogProp {
 }
 
 const TodaysPlanButton = ({ fitLog }: FitLogProp) => {
-  const { plans, setPlan } = useContext(FitContext);
+  const context = useContext(FitContext);
+      if (!context) {
+        throw new Error("MyplanPage must be used inside FitlogProvider");
+      }
+  const { plans, setPlan } = context;
 
   // console.log(fitProvider);
 

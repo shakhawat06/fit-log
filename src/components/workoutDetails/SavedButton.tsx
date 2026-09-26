@@ -11,7 +11,11 @@ interface SavedPropType {
 }
 
 const SavedButton = ({ fitLog }: SavedPropType) => {
-  const { saveds, setSaved } = useContext(FitContext);
+  const context = useContext(FitContext);
+      if (!context) {
+        throw new Error("MyplanPage must be used inside FitlogProvider");
+      }
+  const { saveds, setSaved } = context;
 
   const handleSavedButton = () => {
     if (saveds.length <= 4) {
