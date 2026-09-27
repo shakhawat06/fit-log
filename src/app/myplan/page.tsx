@@ -1,4 +1,5 @@
 "use client";
+import CountCard from "@/components/myplan/CountCard";
 import MyPlanCard from "@/components/myplan/MyPlanCard";
 import SavedPlanCard from "@/components/myplan/SavedPlanCard";
 import { FitContext } from "@/context/FitlogContext";
@@ -34,14 +35,6 @@ const MyplanPage = () => {
   const sortedPlans = sortPlans(plans);
   const sortedSaved = sortPlans(saveds);
 
-  const getTotalDuration = (plans: Ifitlog[]): number => {
-    return plans.reduce((total, plans) => total + plans.duration, 0);
-  };
-
-  const getTotalCalories = (plans: Ifitlog[]): number => {
-    return plans.reduce((total, plans) => total + plans.caloriesBurned, 0);
-  };
-
   return (
     <div className="bg-base-300">
       <div className="container mx-auto space-y-10 py-10">
@@ -53,47 +46,9 @@ const MyplanPage = () => {
         </div>
 
         {todayPlan == true ? (
-          <div className="bg-base-100 border border-gray-700 rounded-2xl py-7 flex items-center">
-            <div className="pl-10 pr-40">
-              <h2 className="font-bold text-2xl">Exercises</h2>
-              <span className="font-bold text-5xl text-[#ccff00]">
-                {plans.length}
-              </span>
-            </div>
-            <div className="border-l border-gray-800 pl-20 pr-40">
-              <h2 className="font-bold text-2xl">Munites</h2>
-              <span className="font-bold text-5xl text-[#ccff00]">
-                {plans.length && getTotalDuration(plans)}
-              </span>
-            </div>
-            <div className="border-l border-gray-800 pl-20 pr-40">
-              <h2 className="font-bold text-2xl">Calories</h2>
-              <span className="font-bold text-5xl text-[#ccff00]">
-                {plans.length && getTotalCalories(plans)}
-              </span>
-            </div>
-          </div>
+          <CountCard plans={plans} />
         ) : (
-          <div className="bg-base-100 border border-gray-700 rounded-2xl py-7 flex items-center">
-            <div className="pl-10 pr-40">
-              <h2 className="font-bold text-2xl">Exercises</h2>
-              <span className="font-bold text-5xl text-[#ccff00]">
-                {saveds.length}
-              </span>
-            </div>
-            <div className="border-l border-gray-800 pl-20 pr-40">
-              <h2 className="font-bold text-2xl">Munites</h2>
-              <span className="font-bold text-5xl text-[#ccff00]">
-                {saveds.length && getTotalDuration(saveds)}
-              </span>
-            </div>
-            <div className="border-l border-gray-800 pl-20 pr-40">
-              <h2 className="font-bold text-2xl">Calories</h2>
-              <span className="font-bold text-5xl text-[#ccff00]">
-                {saveds.length && getTotalCalories(saveds)}
-              </span>
-            </div>
-          </div>
+          <CountCard plans={saveds} />
         )}
 
         {/* name of each tab group should be unique */}
@@ -143,7 +98,7 @@ const MyplanPage = () => {
           </div>
         </div>
 
-        <div className="absolute top-97 right-50">
+        <div className="absolute top-150 right-5 sm:top-94 md:top-94 md:right-30 lg:top-95 lg:right-50">
           <div className="flex items-center">
             <label className="w-full">Sort by</label>
             <select
