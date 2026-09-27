@@ -8,16 +8,14 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const pathName = usePathname()
-  console.log(pathName);
-  
 
   const links = (
     <>
       <li>
-        <Link href="/workout">Workout</Link>
+        <Link className={`${pathName == '/workout' ? 'text-[#ccff00] bg-[#202819]' : ''}  rounded-full hover:text-[#ccff00] hover:bg-[#202819]`} href="/workout">Workout</Link>
       </li>
       <li>
-        <Link href="/myplan">My Plan</Link>
+        <Link className={`${pathName == '/myplan' ? 'text-[#ccff00] bg-[#202819]' : ''}  rounded-full hover:text-[#ccff00] hover:bg-[#202819]`} href="/myplan">My Plan</Link>
       </li>
     </>
   );

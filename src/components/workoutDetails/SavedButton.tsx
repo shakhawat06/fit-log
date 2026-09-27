@@ -20,9 +20,9 @@ const SavedButton = ({ fitLog }: SavedPropType) => {
   const handleSavedButton = () => {
     if (saveds.length <= 4) {
       setSaved([...saveds, fitLog]);
-      toast.success(`${fitLog.name} is added to saved plan`);
+      toast.success(`${fitLog.name} Added to saved plan`);
     } else {
-      toast.error("You have saved 5 plans today.");
+      toast.error("You have taken maximum number of plans today!");
     }
   };
   return (

@@ -22,9 +22,9 @@ const TodaysPlanButton = ({ fitLog }: FitLogProp) => {
   const handleTodaysPlan = () => {
     if (plans.length <= 4) {
       setPlan([...plans, fitLog]);
-      toast.success(`${fitLog.name} is added to today's plan`);
+      toast.success(`${fitLog.name} Added to today's plan`);
     } else {
-      toast.error(`You have taken 5 plans today.`);
+      toast.error(`You have taken maximum number of plans today!`);
     }
   };
 
