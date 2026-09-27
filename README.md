@@ -32,5 +32,8 @@ FitLog is a dynamic and modern designed, fully responsive and functional fronten
 - Workoutpage contains all lifts.
 - MyPlan contains Today's plans and Saved plans.
 
-Site Link: https://fitlog-nine-theta.vercel.app <br />  
-Github link: https://github.com/shakhawat06/fit-log
+<br />
+
+<p> <a href="https://fitlog-nine-theta.vercel.app"> <img src="https://img.shields.io/badge/Live%20Site-ccff00?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1f2937" alt="Live Site" /> </a>
+
+<a href="https://github.com/shakhawat06/fit-log"> <img src="https://img.shields.io/badge/Source%20Code-ccff00?style=for-the-badge&logo=github&logoColor=white&labelColor=1f2937" alt="Source Code" /> </a> </p>
