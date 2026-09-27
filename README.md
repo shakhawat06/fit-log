@@ -34,6 +34,6 @@ FitLog is a dynamic and modern designed, fully responsive and functional fronten
 
 <br />
 
-<p> <a href="https://fitlog-nine-theta.vercel.app"> <img src="https://img.shields.io/badge/Live%20Site-ccff00?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1f2937" alt="Live Site" /> </a>
+<p> <a href="https://fitlog-mauve-pi.vercel.app/"> <img src="https://img.shields.io/badge/Live%20Site-ccff00?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1f2937" alt="Live Site" /> </a>
 
 <a href="https://github.com/shakhawat06/fit-log"> <img src="https://img.shields.io/badge/Source%20Code-ccff00?style=for-the-badge&logo=github&logoColor=white&labelColor=1f2937" alt="Source Code" /> </a> </p>
