@@ -31,4 +31,5 @@ FitLog is a dynamic and modern designed, fully responsive and functional fronten
 - ⚡ Built with Next.js & TypeScript
 
 
-
+Site Link: https://fitlog-nine-theta.vercel.app
+Github link: https://github.com/shakhawat06/fit-log
