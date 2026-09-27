@@ -1,11 +1,11 @@
 import { Ifitlog } from "@/types/FitLogType";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
-import { IoCheckmarkSharp } from "react-icons/io5";
 import { LuClock9 } from "react-icons/lu";
 import { RiHeartPulseFill } from "react-icons/ri";
 import ClosePlanedButton from "./CloseButton";
 import Link from "next/link";
+import MarkAsDoneBtn from "./MarkAsDoneBtn";
 
 interface PlanPropType {
   plan: Ifitlog;
@@ -79,10 +79,7 @@ const MyPlanCard = ({ plan }: PlanPropType) => {
                 </button>
               </Link>
 
-              <button className="flex cursor-pointer items-center gap-2 rounded-full bg-[#ccff00] px-4 py-2 text-sm font-semibold text-black transition hover:bg-[#b8eb00] hover:shadow-lg hover:shadow-[#ccff00]/10">
-                <IoCheckmarkSharp className="text-lg" />
-                Mark as Done
-              </button>
+              <MarkAsDoneBtn />
             </div>
           </div>
         </div>
