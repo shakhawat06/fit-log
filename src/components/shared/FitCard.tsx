@@ -11,11 +11,9 @@ interface FitCardPropType {
 }
 
 const FitCard = ({ fitlog }: FitCardPropType) => {
-  // const {muscleGroup} = fitlog
   return (
     <Link href={`/workout/${fitlog.id}`} className="">
       <div className="card bg-base-100 shadow-sm border border-gray-700 overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-        {/* Image */}
         <figure className="relative overflow-hidden">
           <Image
             src={fitlog.image}
@@ -26,7 +24,6 @@ const FitCard = ({ fitlog }: FitCardPropType) => {
           />
         </figure>
 
-        {/* Muscle Groups */}
         <div className="flex flex-wrap p-5 gap-2 text-black">
           {fitlog.muscleGroups.map((muscel, ind) => (
             <div className="card-actions" key={ind}>
@@ -37,7 +34,6 @@ const FitCard = ({ fitlog }: FitCardPropType) => {
           ))}
         </div>
 
-        {/* Content */}
         <div className="card-body pt-0">
           <h2 className="card-title text-xl font-bold text-white">
             {fitlog.name}
@@ -46,12 +42,10 @@ const FitCard = ({ fitlog }: FitCardPropType) => {
           <p className="text-gray-400 text-sm leading-6">{fitlog.equipment}</p>
         </div>
 
-        {/* Divider */}
         <div className="px-5">
           <div className="border-b border-gray-700"></div>
         </div>
 
-        {/* Statistics */}
         <div className="flex p-5 gap-10 text-gray-300">
           <p className="flex items-center gap-2 text-sm">
             <LuClock9 className="text-[#ccff00] text-lg" />
